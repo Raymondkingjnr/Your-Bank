@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #000;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-7xl px-8;
+  }
+  .section-header {
+    @apply text-base lg:text-3xl leading-10 tracking-wide font-bold lg:font-extrabold text-[#fff];
+  }
+  .item-header {
+    @apply text-base font-semibold;
+  }
+  .text-p {
+    @apply text-sm font-normal leading-7 text-gray-text_color;
+  }
+}
