@@ -15,6 +15,7 @@ import news1 from "../assets/news1.png";
 import container_img from "../assets/container.png";
 import usa_img from "../assets/usa.png";
 import india_img from "../assets/india.png";
+import text from "../assets/Text.png";
 
 export default {
   logo,
@@ -35,4 +36,5 @@ export default {
   news2,
   news3,
   news4,
+  text,
 };

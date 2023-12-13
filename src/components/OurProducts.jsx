@@ -26,7 +26,7 @@ const OurProducts = () => {
   return (
     <section className="align-element">
       <div className=" flex flex-col justify-between md:flex-row place-items-center">
-        <main className=" w-auto md:w-[600px]">
+        <main className=" w-auto md:w-[400px]">
           <SectionTitle
             title={"Our"}
             colored={"Products"}
@@ -42,16 +42,16 @@ const OurProducts = () => {
           <h2 className="font-bold text-sm">For Businesses</h2>
         </main>
       </div>
-      <div className="grid md:grid-cols-3 gap-10 items-center place-items-center p-5 mt-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 items-center place-items-center p-5 mt-5">
         {items.map((item) => {
           const { icon, text, title } = item;
           return (
-            <div className="grid place-items-center">
-              <div className=" bg-gradient-to-t from-green-lightbg to-[#D1FF4C] grid place-items-center rounded-full h-12 w-12 mb-5">
+            <div className="grid place-items-center rounded-lg h-[320px]">
+              <div className=" bg-gradient-to-t from-green-lightbg to-[#D1FF4C] grid place-items-center rounded-full h-12 w-12">
                 <p className=" text-green-bg font-bold text-xl">{icon}</p>
               </div>
-              <h3>{title}</h3>
-              <p className="text-p text-center pt-4 px-6">{text}</p>
+              <h3 className="text-sm font-bold">{title}</h3>
+              <p className="text-p text-center px-6">{text}</p>
             </div>
           );
         })}

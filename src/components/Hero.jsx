@@ -53,7 +53,7 @@ const Hero = () => {
 
       {/*  */}
 
-      <div className="grid place-content-center relative">
+      <div className="grid place-content-center relative ">
         <aside className="flex absolute z-[20] place-items-center gap-4 rounded-lg top-3 left-4 p-3 bg-[#22251B]">
           <div className="grid place-items-center w-7 h-7 rounded-full bg-[#caff33] ">
             <p className="text-[#000]">

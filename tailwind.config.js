@@ -10,8 +10,10 @@ export default {
         lightbg: "#22251B",
       },
       gray: {
-        text_color: "#98989A",
+        text_color: "#b3b3b3",
         gray_bg: "#191919",
+        border_gray: "#262626",
+        grey_title: "#4c4c4d",
       },
     },
     extend: {},
