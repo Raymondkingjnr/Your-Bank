@@ -5,3 +5,4 @@ export { default as Security_page } from "./Security_page";
 export { default as Landing_page } from "./Landing_page";
 export { default as Login } from "./Login";
 export { default as Sign_up } from "./Sign_up";
+export { default as Error } from "./Error";

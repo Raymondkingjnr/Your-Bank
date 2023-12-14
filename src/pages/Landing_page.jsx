@@ -20,7 +20,6 @@ const Landing_page = () => {
       <FAQ />
       <Testimonies />
       <OpenAccount />
-      <Footer />
     </>
   );
 };

@@ -16,7 +16,6 @@ const Career_page = () => {
       />
       <ValuesSec />
       <JobsSec />
-      <Footer />
     </div>
   );
 };

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <section className="align-element pt-9">
-      <main className="navbar bg-accent-content rounded-full px-5  border border-base-content">
+      <main className="navbar bg-green-lightbg rounded-full px-5  border border-base-content">
         {/* NAV-START */}
         <div className="navbar-start">
           <aside className="hidden lg:flex place-items-center gap-x-3 object-contain">
@@ -25,7 +25,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-30 p-2 shadow bg-accent-content rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-30 p-2 shadow bg-green-lightbg rounded-box w-52"
             >
               <Nav_links />
             </ul>

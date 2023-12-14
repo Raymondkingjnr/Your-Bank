@@ -96,7 +96,7 @@ const ValuesSec = () => {
                       {item.icon}
                     </p>
                   </div>
-                  <h2 className=" text-xl font-bold text-gray-grey_title">
+                  <h2 className=" text-xl font-bold text-[#fff]">
                     {item.title}
                   </h2>
                 </aside>

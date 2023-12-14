@@ -11,3 +11,6 @@ export { default as OpenAccount } from "./OpenAccount";
 export { default as Footer } from "./Footer";
 export { default as ValuesSec } from "./ValuesSec";
 export { default as JobsSec } from "./JobsSec";
+export { default as Missionsec } from "./Missionsex";
+export { default as Press } from "./Press";
+export { default as ProtectSec } from "./ProtectSec";
