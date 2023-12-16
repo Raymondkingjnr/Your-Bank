@@ -22,17 +22,19 @@ const Login = () => {
             Welcome back! Please log in to access your account.
           </p>
         </div>
-        <main className=" flex flex-col md:flex-row place-items-center gap-4 my-8">
-          <FormInput
-            type={"email"}
-            name={"email"}
-            placeholder={"Enter Email"}
-          />
-          <FormInput
-            type={"password"}
-            name={"password"}
-            placeholder={"Enter Password"}
-          />
+        <main>
+          <form className=" flex flex-col md:flex-row place-items-center gap-4 my-8">
+            <FormInput
+              type={"email"}
+              name={"email"}
+              placeholder={"Enter Email"}
+            />
+            <FormInput
+              type={"password"}
+              name={"password"}
+              placeholder={"Enter Password"}
+            />
+          </form>
         </main>
         <a href="#" className=" font-bold text-base">
           Forgot password?
