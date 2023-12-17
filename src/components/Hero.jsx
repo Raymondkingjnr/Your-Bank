@@ -69,7 +69,7 @@ const Hero = () => {
           <h3 className="item-header float-left pb-[3rem]">Your Transaction</h3>
           <div>
             <img
-              src={images.container_img}
+              src={images.hero_img}
               alt=""
               className=" w-[300px] object-contain"
             />

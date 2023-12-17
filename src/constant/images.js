@@ -12,7 +12,7 @@ import news2 from "../assets/news2.png";
 import news3 from "../assets/news3.png";
 import news4 from "../assets/news4.png";
 import news1 from "../assets/news1.png";
-import container_img from "../assets/container.png";
+import hero_img from "../assets/hero.png";
 import usa_img from "../assets/usa.png";
 import india_img from "../assets/india.png";
 import text from "../assets/Text.png";
@@ -21,7 +21,7 @@ export default {
   logo,
   usa_img,
   india_img,
-  container_img,
+  hero_img,
   about_img,
   abstract_header,
   abstract_hero,
