@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../constant/images";
+import images from "../constant";
 import { useSelector } from "react-redux";
 
 const Header = () => {

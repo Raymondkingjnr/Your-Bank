@@ -1,5 +1,5 @@
 import React from "react";
-import images from "../constant/images";
+import { images } from "../constant";
 import { FaBarsStaggered } from "react-icons/fa6";
 import Nav_links from "./Nav_links";
 import { Link } from "react-router-dom";

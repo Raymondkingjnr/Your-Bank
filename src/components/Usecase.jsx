@@ -1,6 +1,6 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import images from "../constant/images";
+import { images } from "../constant";
 import { FaBookOpen } from "react-icons/fa";
 import { MdSavings } from "react-icons/md";
 import { GiCash } from "react-icons/gi";

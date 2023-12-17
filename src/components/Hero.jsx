@@ -2,10 +2,10 @@ import React from "react";
 import { TiTick } from "react-icons/ti";
 import { GoPlus } from "react-icons/go";
 import SectionTitle from "./SectionTitle";
-import images from "../constant/images";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { FaPoundSign, FaEthereum } from "react-icons/fa";
 import { LuBitcoin } from "react-icons/lu";
+import { images } from "../constant";
 
 const icons = [
   {
