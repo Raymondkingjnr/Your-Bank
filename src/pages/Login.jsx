@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Footer, Navbar, Testimonies } from "../components";
+import { Testimonies } from "../components";
 import FormInput from "../components/FormInput";
 import { images } from "../constant";
 import { MdFacebook } from "react-icons/md";
 import { FaGoogle, FaApple } from "react-icons/fa6";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebaseConfig";
 import { useSelector, useDispatch } from "react-redux";
@@ -105,9 +105,9 @@ const Login = () => {
           </button>
         </div>
         <main className="mt-10 flex place-items-center">
-          <div className="w-[120px] h-[1px] bg-[#fff] rounded-2xl" />
-          <p className="px-5 font-bold text-[#fff] text-sm">Or Continue with</p>
-          <div className="w-[120px] h-[1px] bg-[#fff] rounded-2xl" />
+          <div className="w-[70px] md:w-[120px] h-[1px] bg-[#fff] rounded-2xl" />
+          <p className="px-5 font-bold text-[#fff] text-xs">Or Continue with</p>
+          <div className="w-[70px] md:w-[120px] h-[1px] bg-[#fff] rounded-2xl" />
         </main>
         <div className="flex gap-10 mt-10">
           {icons.map((icon, index) => (

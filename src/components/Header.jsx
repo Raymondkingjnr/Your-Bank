@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const user = useSelector((state) => state.auth.user);
+
   return (
     <div className="reletive align-element ">
       <img

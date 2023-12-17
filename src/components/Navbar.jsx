@@ -9,6 +9,7 @@ import { logOutUser } from "../feature/AuthSlice";
 const Navbar = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
+
   return (
     <section className="align-element pt-9">
       <main className="navbar bg-green-lightbg rounded-full px-5  border border-base-content">
@@ -44,7 +45,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <button
-              className="btn bg-green-bg text-[#000] font-bold text-sm border-transparent"
+              className=" btn-sm md:btn bg-green-bg text-[#000] font-bold text-sm border-transparent"
               onClick={() => dispatch(logOutUser())}
             >
               Sign Out

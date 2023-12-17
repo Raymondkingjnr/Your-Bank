@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
   About,
@@ -12,8 +12,12 @@ import {
 } from "./pages";
 // import { store } from "./store";
 import ErrorElement from "./components/ErrorElement";
+import { toast } from "react-toastify";
+import { auth } from "./firebaseConfig";
+import { useDispatch } from "react-redux";
+import { loginUser, setLoadin } from "./feature/AuthSlice";
 
-import { action as RegisterAction } from "./pages/Sign_up";
+// import { action as RegisterAction } from "./pages/Sign_up";
 // import { action as loginAction } from "./pages/Login";
 
 const router = createBrowserRouter([
@@ -53,11 +57,29 @@ const router = createBrowserRouter([
     path: "/sign_up",
     errorElement: <Error />,
     element: <Sign_up />,
-    action: RegisterAction,
+    // action: RegisterAction,
   },
 ]);
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        dispatch(
+          loginUser({
+            uid: authUser.uid,
+            username: authUser.displayName,
+            email: authUser.email,
+          })
+        );
+        dispatch(setLoadin(false));
+      } else {
+        toast.warn("There was a problem");
+      }
+    });
+  }, [dispatch]);
   return <RouterProvider router={router} />;
 };
 
