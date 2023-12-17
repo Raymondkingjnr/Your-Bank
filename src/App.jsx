@@ -10,7 +10,11 @@ import {
   Sign_up,
   Error,
 } from "./pages";
+// import { store } from "./store";
 import ErrorElement from "./components/ErrorElement";
+
+import { action as RegisterAction } from "./pages/Sign_up";
+// import { action as loginAction } from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -25,30 +29,31 @@ const router = createBrowserRouter([
       },
       {
         path: "career",
-        errorElement: <ErrorElement />,
+        // errorElement: <ErrorElement />,
         element: <Career_page />,
       },
       {
         path: "about",
-        errorElement: <ErrorElement />,
+        // errorElement: <ErrorElement />,
         element: <About />,
       },
       {
         path: "security",
-        errorElement: <ErrorElement />,
+        // errorElement: <ErrorElement />,
         element: <Security_page />,
       },
-      {
-        path: "/login",
-        errorElement: <Error />,
-        element: <Login />,
-      },
-      {
-        path: "/sign_up",
-        errorElement: <Error />,
-        element: <Sign_up />,
-      },
     ],
+  },
+  {
+    path: "/login",
+    errorElement: <Error />,
+    element: <Login />,
+  },
+  {
+    path: "/sign_up",
+    errorElement: <Error />,
+    element: <Sign_up />,
+    action: RegisterAction,
   },
 ]);
 

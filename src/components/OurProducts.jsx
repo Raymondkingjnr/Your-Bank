@@ -43,10 +43,13 @@ const OurProducts = () => {
         </main>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 items-center place-items-center p-5 mt-5">
-        {items.map((item) => {
+        {items.map((item, index) => {
           const { icon, text, title } = item;
           return (
-            <div className="grid place-items-center rounded-lg h-[320px]">
+            <div
+              className="grid place-items-center rounded-lg h-[320px]"
+              key={index}
+            >
               <div className=" bg-gradient-to-t from-green-lightbg to-[#D1FF4C] grid place-items-center rounded-full h-12 w-12">
                 <p className=" text-green-bg font-bold text-xl">{icon}</p>
               </div>

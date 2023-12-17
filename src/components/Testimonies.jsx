@@ -26,11 +26,8 @@ const Testimonies = () => {
         {data.carousel_items.map((item, index) => {
           const { text, name } = item;
           return (
-            <main className="py-6 relative   z-0">
-              <div
-                className="grid border w-[240px] lg:w-[350px]   rounded-lg bg-gray-gray_bg border-gray-border_gray p-6 text-center  carousel-item"
-                key={index}
-              >
+            <main className="py-6 relative   z-0" key={index}>
+              <div className="grid border w-[240px] lg:w-[350px]   rounded-lg bg-gray-gray_bg border-gray-border_gray p-6 text-center  carousel-item">
                 <p className="text-sm font-medium leading-8">{text}</p>
                 <h4 className=" mt-8 text-sm font-semibold text-green-bg">
                   {name}

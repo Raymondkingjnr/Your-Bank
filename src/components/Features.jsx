@@ -41,10 +41,10 @@ const Features = () => {
           </div>
           {/* CONTENT */}
           <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 w-[350px] lg:w-[900px] p-5">
-            {items.map((item) => {
+            {items.map((item, index) => {
               const { text, title } = item;
               return (
-                <div className="grid bg-[#191919] rounded-lg p-5">
+                <div className="grid bg-[#191919] rounded-lg p-5" key={index}>
                   <div className="flex justify-between place-items-center">
                     <h3 className=" text-base font-bold">{title}</h3>
                     <p className="text-xl text-[#CAFF33] font-bold">

@@ -47,8 +47,8 @@ const Footer = () => {
           })}
         </div>
         <div className="flex flex-col md:flex-row gap-5 pt-10 border-gray-border_gray  py-4">
-          {items.map((item) => (
-            <div className="flex gap-3 place-items-center">
+          {items.map((item, index) => (
+            <div className="flex gap-3 place-items-center" key={index}>
               <p className=" text-green-bg"> {item.icon}</p>
               <p className="text-[#E4E4E7] text-sm font-semibold">
                 {item.text}
@@ -59,8 +59,11 @@ const Footer = () => {
       </main>
       <main className="flex flex-col md:flex-row gap-y-8 place-items-center items-center mt-12 p-4 border-gray-border_gray rounded-lg justify-between bg-neutral-950">
         <div className="flex gap-3 place-items-center">
-          {icons.map((item) => (
-            <div className="grid place-content-center w-10 h-10 rounded-full bg-green-bg">
+          {icons.map((item, index) => (
+            <div
+              className="grid place-content-center w-10 h-10 rounded-full bg-green-bg"
+              key={index}
+            >
               <p className=" text-gray-border_gray">{item}</p>
             </div>
           ))}

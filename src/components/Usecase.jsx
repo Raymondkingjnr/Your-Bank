@@ -62,10 +62,13 @@ const Usecase = () => {
               <img src={images.abstract_left} alt="" />
             </main>
             <main className=" grid place-content-center relative z-10 grid-cols-2 gap-10">
-              {items.map((item) => {
+              {items.map((item, index) => {
                 const { icon, text } = item;
                 return (
-                  <div className="grid bg-[#000] p-5 place-content-center place-items-center items-center rounded-lg w-[120px] md:w-[180px]">
+                  <div
+                    className="grid bg-[#000] p-5 place-content-center place-items-center items-center rounded-lg w-[120px] md:w-[180px]"
+                    key={index}
+                  >
                     <div className=" bg-gradient-to-t from-green-lightbg to-[#D1FF4C] grid place-items-center rounded-full h-12 w-12">
                       <p className=" text-green-bg font-bold text-xl">{icon}</p>
                     </div>
@@ -157,10 +160,13 @@ const Usecase = () => {
               <img src={images.abstract_right} alt="" />
             </main>
             <main className=" grid place-content-center relative z-10 grid-cols-2 gap-10">
-              {for_business.map((item) => {
+              {for_business.map((item, index) => {
                 const { icon, text } = item;
                 return (
-                  <div className="grid bg-[#000] p-5 place-content-center place-items-center items-center rounded-lg w-[120px] md:w-[180px]">
+                  <div
+                    className="grid bg-[#000] p-5 place-content-center place-items-center items-center rounded-lg w-[120px] md:w-[180px]"
+                    key={index}
+                  >
                     <div className=" bg-gradient-to-t from-green-lightbg to-[#D1FF4C] grid place-items-center rounded-full h-12 w-12">
                       <p className=" text-green-bg font-bold text-xl">{icon}</p>
                     </div>
