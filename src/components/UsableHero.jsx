@@ -13,7 +13,7 @@ const UsableHero = ({ image, text, title, colored }) => {
           <img
             src={image}
             alt=""
-            className=" md:w-[400px] lg:w-[600px] h-fit object-contain"
+            className=" md:w-[400px] lg:w-[600px] h-[250px] md:h-fit object-contain"
           />
         </div>
         <div>

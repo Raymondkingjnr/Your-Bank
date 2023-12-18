@@ -75,8 +75,6 @@ const App = () => {
           })
         );
         dispatch(setLoadin(false));
-      } else {
-        toast.warn("There was a problem");
       }
     });
   }, [dispatch]);
