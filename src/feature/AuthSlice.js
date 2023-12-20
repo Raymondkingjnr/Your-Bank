@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { auth } from "../firebaseConfig";
 import {
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
-  updateCurrentUser,
+  signInWithPopup,
   updateProfile,
 } from "firebase/auth";
 import {
@@ -14,6 +15,7 @@ import {
 } from "../localStorage";
 import { toast } from "react-toastify";
 
+// /////
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -79,6 +81,25 @@ export const signUp = (email, password, name) => async (dispatch) => {
       toast.warning(error.message);
       dispatch(setLoading(false));
     });
+};
+
+// Google Login
+
+export const signInWithGoogle = () => async (dispatch) => {
+  const auth = getAuth();
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const userCredential = await signInWithPopup(auth, provider);
+    const user = userCredential.user;
+
+    // Additional actions after successful login
+    dispatch(logUser(user));
+    dispatch(setLoading(true));
+    toast.success("Logged In with Google");
+  } catch (error) {
+    toast.warning(error.message);
+  }
 };
 
 export default authSlice.reducer;
