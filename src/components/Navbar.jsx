@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <section className="align-element pt-9">
-      <main className="navbar bg-green-lightbg rounded-full px-5  border border-base-content">
+      <main className="navbar bg-green-lightbg rounded-xl px-5 ">
         {/* NAV-START */}
         <div className="navbar-start">
           <aside className="hidden lg:flex place-items-center gap-x-3 object-contain">
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <button
-              className=" btn-sm md:btn bg-green-bg text-[#000] font-bold text-sm border-transparent"
+              className=" btn-sm md:btn bg-green-bg text-[#000] rounded-lg font-bold text-sm border-transparent"
               onClick={() => dispatch(logOut())}
             >
               Sign Out

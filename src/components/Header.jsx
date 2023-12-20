@@ -13,7 +13,7 @@ const Header = () => {
         className=" absolute w-16 h-16 top-0 left-0 rounded-full"
       />
       {user ? (
-        <div className=" bg-green-lightbg p-3 rounded-full w-fit float-right my-2">
+        <div className=" bg-green-lightbg p-3 rounded-xl w-fit float-right my-2">
           <h3 className=" font-bold text-sm ">Welcome {user.displayName} ✅</h3>
         </div>
       ) : (
