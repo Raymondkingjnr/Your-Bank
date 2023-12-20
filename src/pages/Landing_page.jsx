@@ -2,7 +2,6 @@ import React from "react";
 import {
   FAQ,
   Features,
-  Footer,
   Hero,
   OpenAccount,
   OurProducts,

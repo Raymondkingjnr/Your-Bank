@@ -4,7 +4,7 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import Nav_links from "./Nav_links";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logOutUser } from "../feature/AuthSlice";
+import { logOut } from "../feature/AuthSlice";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const Navbar = () => {
           {user ? (
             <button
               className=" btn-sm md:btn bg-green-bg text-[#000] font-bold text-sm border-transparent"
-              onClick={() => dispatch(logOutUser())}
+              onClick={() => dispatch(logOut())}
             >
               Sign Out
             </button>

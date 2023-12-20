@@ -5,14 +5,9 @@ import { images } from "../constant";
 import { MdFacebook } from "react-icons/md";
 import { FaGoogle, FaApple } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  updateProfile,
-} from "firebase/auth";
-import { auth } from "../firebaseConfig";
-import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+
+import { signUp } from "../feature/AuthSlice";
 
 const icons = [<MdFacebook />, <FaGoogle />, <FaApple />];
 
@@ -20,12 +15,13 @@ const Sign_up = () => {
   const initialState = {
     email: "",
     password: "",
-    firstName: "",
+    name: "",
     lastName: "",
   };
   const [values, setValues] = useState(initialState);
   const navigate = useNavigate();
-  const user = useSelector((state) => state.auth.user);
+  const dispatch = useDispatch();
+  const { user, isLoading } = useSelector((state) => state.auth);
   console.log(user);
 
   const handleChange = (e) => {
@@ -36,19 +32,9 @@ const Sign_up = () => {
     }));
   };
 
-  const handleSignUp = () => {
-    createUserWithEmailAndPassword(auth, values.email, values.password)
-      .then(signInWithEmailAndPassword(auth, values.email, values.password))
-      .then((userCredential) => {
-        const user = userCredential.user;
-        return updateProfile(user, { displayName: values.firstName });
-      })
-      .then(() => {
-        toast.success("Account created successfuly");
-      })
-      .catch((err) => {
-        toast.error(err.message || "There was an error creating your account");
-      });
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    dispatch(signUp(values.email, values.password, values.name));
   };
 
   useEffect(() => {
@@ -79,7 +65,7 @@ const Sign_up = () => {
         <div className=" grid md:grid-cols-2  place-items-center gap-4 my-8">
           <FormInput
             type={"text"}
-            name={"firstName"}
+            name={"name"}
             placeholder={"Enter First Name"}
             handleChange={handleChange}
           />
@@ -105,6 +91,7 @@ const Sign_up = () => {
         <div className="flex place-content-center place-items-center flex-col">
           <button
             className="btn border-transparent w-[250px]  md:w-[400px]  rounded-2xl mt-8 bg-gray-gray_bg text-[#fff] hover:text-[#000] transition duration-300 hover:bg-green-bg"
+            disabled={isLoading}
             onClick={handleSignUp}
           >
             Sign Up

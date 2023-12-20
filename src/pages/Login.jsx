@@ -5,11 +5,8 @@ import { images } from "../constant";
 import { MdFacebook } from "react-icons/md";
 import { FaGoogle, FaApple } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebaseConfig";
 import { useSelector, useDispatch } from "react-redux";
-import { loginUser } from "../feature/AuthSlice";
-import { toast } from "react-toastify";
+import { signIn } from "../feature/AuthSlice";
 
 const icons = [<MdFacebook />, <FaGoogle />, <FaApple />];
 
@@ -22,8 +19,8 @@ const Login = () => {
     password: "",
   };
 
-  const user = useSelector((state) => state.auth.user);
-  // console.log(user);
+  const { user, isLoading } = useSelector((state) => state.auth);
+  console.log(user);
 
   const [values, setValues] = useState(initialState);
 
@@ -35,22 +32,8 @@ const Login = () => {
     }));
   };
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword(auth, values.email, values.password)
-      .then((userCredential) => {
-        const user = userCredential.user;
-        dispatch(loginUser(user));
-      })
-      .then(() => {
-        toast.success("welcome new back");
-      })
-      .then(() => {})
-      .catch((error) => {
-        toast.error(
-          error.message ||
-            "You Have an issue logging in check credientials again"
-        );
-      });
+  const handleSignIn = async () => {
+    dispatch(signIn(values.email, values.password));
   };
 
   useEffect(() => {
@@ -96,7 +79,8 @@ const Login = () => {
         <div className="flex flex-col">
           <button
             className="btn border-transparent w-[250px]  lg:w-[400px] rounded-2xl bg-gray-gray_bg mt-8 text-[#fff] hover:text-[#000] transition duration-300 hover:bg-green-bg"
-            onClick={handleLogin}
+            disabled={isLoading}
+            onClick={handleSignIn}
           >
             Login
           </button>

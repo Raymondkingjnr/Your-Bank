@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
   About,
@@ -10,15 +10,7 @@ import {
   Sign_up,
   Error,
 } from "./pages";
-// import { store } from "./store";
 import ErrorElement from "./components/ErrorElement";
-import { toast } from "react-toastify";
-import { auth } from "./firebaseConfig";
-import { useDispatch } from "react-redux";
-import { loginUser, setLoadin } from "./feature/AuthSlice";
-
-// import { action as RegisterAction } from "./pages/Sign_up";
-// import { action as loginAction } from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -62,23 +54,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    auth.onAuthStateChanged((authUser) => {
-      if (authUser) {
-        dispatch(
-          loginUser({
-            uid: authUser.uid,
-            username: authUser.displayName,
-            email: authUser.email,
-          })
-        );
-        dispatch(setLoadin(false));
-      }
-    });
-  }, [dispatch]);
-  return <RouterProvider router={router} />;
+  return (
+    <div>
+      <RouterProvider router={router} />;
+    </div>
+  );
 };
 
 export default App;

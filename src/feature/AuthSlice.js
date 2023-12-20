@@ -1,33 +1,84 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const getUserFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem("user")) || null;
-};
+import { auth } from "../firebaseConfig";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+  updateCurrentUser,
+  updateProfile,
+} from "firebase/auth";
+import {
+  addUserLocalStorage,
+  removeLocalStorage,
+  getUserFromLocalStorage,
+} from "../localStorage";
+import { toast } from "react-toastify";
 
 const authSlice = createSlice({
   name: "auth",
   initialState: {
     user: getUserFromLocalStorage(),
-    isLoading: true,
-    Error: null,
+    isLoading: false,
   },
   reducers: {
-    loginUser: (state, action) => {
-      const user = action.payload;
-      // console.log(user);
-      state.user = user;
-      localStorage.setItem("user", JSON.stringify(user));
+    logUser: (state, action) => {
+      state.user = action.payload;
     },
-    setLoadin: (state, action) => {
+    setLoading: (state, action) => {
       state.isLoading = action.payload;
     },
-    logOutUser: (state) => {
+    logOut: (state) => {
+      removeLocalStorage();
       state.user = null;
-      localStorage.removeItem("user"), (state.isLoading = false);
+      state.isLoading = false;
     },
   },
 });
 
-export const { loginUser, setLoadin, logOutUser } = authSlice.actions;
+export const { logUser, setLoading, logOut } = authSlice.actions;
+
+// LOGINUSER
+
+export const signIn = (email, password) => async (dispatch) => {
+  const trimmedEmail = email.trim();
+  console.log(trimmedEmail);
+
+  signInWithEmailAndPassword(auth, trimmedEmail, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      addUserLocalStorage(user);
+      dispatch(logUser(user));
+      dispatch(setLoading(true));
+    })
+    .then(() => {
+      toast.success("Logged In");
+    })
+    .catch((error) => {
+      toast.warning(error.message);
+    });
+};
+
+// SIGNUP USER
+
+export const signUp = (email, password, name) => async (dispatch) => {
+  createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      addUserLocalStorage(user);
+      return updateProfile(user, { displayName: name });
+    })
+    .then(() => {
+      const user = getAuth().currentUser; // Corrected the usage of updateCurrentUser
+      dispatch(logUser(user));
+      dispatch(setLoading(true));
+    })
+    .then(() => {
+      toast.success("Profile created");
+    })
+    .catch((error) => {
+      toast.warning(error.message);
+      dispatch(setLoading(false));
+    });
+};
 
 export default authSlice.reducer;
