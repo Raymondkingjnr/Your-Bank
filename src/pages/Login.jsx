@@ -72,8 +72,14 @@ const Login = () => {
             handleChange={handleChange}
           />
         </main>
+
         <a href="#" className=" font-bold text-base">
-          Forgot password?
+          <Link
+            to={"/reset_password"}
+            className="hover hover:text-green-bg transition-all duration-500"
+          >
+            Forgot password?
+          </Link>
         </a>
         <div className="flex flex-col">
           <button

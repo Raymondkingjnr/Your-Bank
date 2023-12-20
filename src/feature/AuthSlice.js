@@ -4,6 +4,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   getAuth,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   updateProfile,
@@ -14,6 +15,7 @@ import {
   getUserFromLocalStorage,
 } from "../localStorage";
 import { toast } from "react-toastify";
+import { redirect } from "react-router-dom";
 
 // /////
 const authSlice = createSlice({
@@ -43,7 +45,6 @@ export const { logUser, setLoading, logOut } = authSlice.actions;
 
 export const signIn = (email, password) => async (dispatch) => {
   const trimmedEmail = email.trim();
-  console.log(trimmedEmail);
 
   signInWithEmailAndPassword(auth, trimmedEmail, password)
     .then((userCredential) => {
@@ -100,6 +101,23 @@ export const signInWithGoogle = () => async (dispatch) => {
   } catch (error) {
     toast.warning(error.message);
   }
+};
+
+// RESET PASSWORD
+
+export const reset_password = (email) => async (dispatch) => {
+  sendPasswordResetEmail(auth, email)
+    .then(() => {
+      toast.success("reset link sent to your mail");
+      dispatch(setLoading(true));
+    })
+    .then(() => {
+      return redirect("/");
+    })
+    .catch((error) => {
+      toast.warning(error.message);
+      dispatch(setLoading(false));
+    });
 };
 
 export default authSlice.reducer;

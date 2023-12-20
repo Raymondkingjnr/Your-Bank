@@ -11,6 +11,7 @@ import {
   Error,
 } from "./pages";
 import ErrorElement from "./components/ErrorElement";
+import ResetPassword from "./pages/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,12 @@ const router = createBrowserRouter([
     path: "/sign_up",
     errorElement: <Error />,
     element: <Sign_up />,
+    // action: RegisterAction,
+  },
+  {
+    path: "/reset_password",
+    errorElement: <Error />,
+    element: <ResetPassword />,
     // action: RegisterAction,
   },
 ]);
