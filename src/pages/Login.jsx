@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Testimonies } from "../components";
 import FormInput from "../components/FormInput";
 import { images } from "../constant";
-import { MdFacebook } from "react-icons/md";
-import { FaGoogle, FaApple } from "react-icons/fa6";
+import { FaGoogle } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { signIn } from "../feature/AuthSlice";
+import { signIn, signInWithGoogle } from "../feature/AuthSlice";
 
-const icons = [<MdFacebook />, <FaGoogle />, <FaApple />];
+const icons = [<FaGoogle />];
 
 const Login = () => {
   const navigate = useNavigate();
@@ -95,12 +94,13 @@ const Login = () => {
         </main>
         <div className="flex gap-10 mt-10">
           {icons.map((icon, index) => (
-            <div
+            <button
               className="grid place-items-center w-[50px] h-[50px] rounded-full border"
               key={index}
+              onClick={() => dispatch(signInWithGoogle())}
             >
-              <p className=" text-green-bg font-bold ">{icon}</p>
-            </div>
+              {icon}
+            </button>
           ))}
         </div>
       </section>
