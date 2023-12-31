@@ -5,7 +5,7 @@ import { images } from "../constant";
 const UsableHero = ({ image, text, title, colored }) => {
   return (
     <main className="align-element">
-      <div className=" md:relative pt-6 flex flex-col-reverse md:flex-row justify-between mt-[2rem] mb-[7rem] lg:mb-[12rem] ">
+      <div className=" md:relative pt-6 flex flex-col-reverse gap-y-1 md:flex-row justify-between mt-[2rem] mb-[7rem] lg:mb-[12rem] ">
         <div className=" rounded-t-3xl md:relative md:left-[2rem] lg:left-[8rem] z-20 bg-gray-gray_bg p-6 md:p-10 text-center md:text-left md:w-[400px] lg:w-[600px] h-fit">
           <SectionTitle text={text} title={title} colored={colored} />
         </div>
@@ -13,7 +13,7 @@ const UsableHero = ({ image, text, title, colored }) => {
           <img
             src={image}
             alt=""
-            className=" md:w-[400px] lg:w-[600px] h-[250px] md:h-fit object-contain"
+            className=" w-full md:w-[400px] lg:w-[600px] h-[250px] md:h-fit object-contain"
           />
         </div>
         <div>
