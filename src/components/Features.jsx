@@ -10,20 +10,22 @@ const Features = () => {
   const { features, items, id } = datas[value];
 
   return (
-    <section className="align-element py-10">
-      <div className=" w-auto md:w-[700px]">
-        <SectionTitle
-          title={"Our"}
-          colored={"Features"}
-          text={
-            "Experience a host of powerful features at YourBank, including seamless online banking, secure transactions, and personalized financial insights, all designed to enhance your banking experience"
-          }
-        />
+    <section className="py-10">
+      <div className=" w-auto align-element">
+        <main className=" md:w-[600px]">
+          <SectionTitle
+            title={"Our"}
+            colored={"Features"}
+            text={
+              "Experience a host of powerful features at YourBank, including seamless online banking, secure transactions, and personalized financial insights, all designed to enhance your banking experience"
+            }
+          />
+        </main>
 
         {/* FEATURES */}
 
-        <main className="grid align-middle gap-x-30 md:grid-cols-2 place-content-center">
-          <div className="flex flex-col gap-6 mt-[1.3rem] place-items-center h-[250px] mx-2 md:mx-0 bg-gray-gray_bg p-6 rounded-lg">
+        <main className="flex flex-col lg:flex-row gap-10  place-items-center md:place-items-start  place-content-center">
+          <div className="flex  flex-col w-full lg:w-[350px] gap-6 mt-[1.3rem] place-items-center h-[250px] mx-2 md:mx-0 bg-gray-gray_bg p-6 rounded-lg">
             {/* BUTTONS */}
             {datas.map((item, index) => {
               return (
@@ -40,7 +42,7 @@ const Features = () => {
             })}
           </div>
           {/* CONTENT */}
-          <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-10 w-[350px] lg:w-[900px] p-5">
+          <div className="grid   md:grid-cols-2 gap-6 w-full pt-5 ">
             {items.map((item, index) => {
               const { text, title } = item;
               return (

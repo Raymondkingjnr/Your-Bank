@@ -81,7 +81,7 @@ const Usecase = () => {
             </main>
           </article>
           {/*  */}
-          <article className=" px-5">
+          <article className="">
             <h2 className="text-lg font-bold">For Individuals</h2>
             <p className="text-sm font-normal py-4 text-gray-text_color leading-8">
               For individuals, our mortgage services pave the way to
@@ -121,7 +121,7 @@ const Usecase = () => {
       <section className=" align-element mt-8 pb-6">
         <div className=" grid lg:grid-cols-2 gap-10 mt-[3rem]">
           {/*  */}
-          <article className=" px-5">
+          <article className="">
             <h2 className="text-lg font-bold">For Business</h2>
             <p className="text-sm font-normal py-4 text-gray-text_color leading-8">
               For businesses, we empower growth with working capital solutions

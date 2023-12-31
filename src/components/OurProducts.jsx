@@ -25,7 +25,7 @@ const items = [
 const OurProducts = () => {
   return (
     <section className="align-element">
-      <div className=" flex flex-col justify-between md:flex-row place-items-center">
+      <div className=" flex flex-col justify-between md:flex-row place-items-center ">
         <main className=" w-auto md:w-[400px]">
           <SectionTitle
             title={"Our"}
@@ -35,7 +35,7 @@ const OurProducts = () => {
             }
           />
         </main>
-        <main className="flex justify-between place-items-center gap-10 bg-[#262626] rounded-full p-2">
+        <main className="flex justify-between place-items-center gap-10 bg-[#262626] rounded-full p-2 mt-4 md:mt-0">
           <div className=" bg-green-bg text-[#000] p-2 rounded-full">
             <h2 className="font-bold text-sm">For Individuals</h2>
           </div>

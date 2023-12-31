@@ -15,7 +15,7 @@ const FQA = () => {
   };
 
   return (
-    <div className="align-element px-10">
+    <div className="align-element">
       <main>
         <SectionTitle
           title={"Frequently"}
